@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lileot - Inovação e Tecnologia</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <div class="container">
+  
+      <!-- Menu de seleção -->
+      <nav class="menu">
+        <button onclick="mostrarSecao('passageiro')">👤 Passageiro</button>
+        <button onclick="mostrarSecao('motorista')">🚗 Motorista</button>
+      </nav>
+  
+      <!-- Seção Passageiro -->
+      <section id="passageiro" class="secao-ativa">
+        <header>
+          <img src="D:\projeto\imagens\Screenshot_20250717_160241_Google Play Store.jpg" alt="Imagem do App Lileot" class="app-image" />
+        </header>
+  
+        <section class="descricao">
+          <h1>Lileot</h1>
+          <p>
+            Na Lileot, transportar você com segurança, conforto e pontualidade é a nossa prioridade.<br><br>
+  
+            Atuamos na cidade de Amparo e região, oferecendo um serviço de transporte por aplicativo que se destaca pela qualidade no atendimento, motoristas capacitados e um profundo compromisso com a satisfação do cliente.<br><br>
+  
+            Cada viagem é pensada para proporcionar uma experiência tranquila, confiável e acolhedora, seja para o dia a dia ou momentos especiais. Prezamos pela pontualidade, porque sabemos que seu tempo é valioso, e pelo conforto, porque entendemos que sua jornada começa no momento em que entra no carro.<br><br>
+  
+            Com a Lileot, você conta com transparência, segurança e respeito, reforçando o que acreditamos: o transporte ideal é aquele que te leva bem — e vai além do destino.
+
+             Você pode solicitar corridas com a gente de forma rápida e prática, seja pelo nosso aplicativo ou diretamente pelo WhatsApp!
+
+          </p>
+  
+          <p style="margin-top: 20px; font-weight: bold;">
+            🎉 Promoção Especial: Viaje e Concorra a R$ 1.000,00!<br>
+            Faça mais de 5 corridas e concorra a um prêmio em dinheiro. Quanto mais você anda, mais chances tem de ganhar!
+          </p>
+        </section>
+  
+        <footer class="redes-sociais">
+          <a href="https://instagram.com/lileotlileot" target="_blank" class="icone"><i class="fab fa-instagram" title="Perfil no Instagram"></i></a>
+          <a href="https://facebook.com/lileotapp" target="_blank" class="icone"><i class="fab fa-facebook" title="Perfil no Facebook"></i></a>
+          <a href="https://wa.me/19989548149" target="_blank" class="icone"><i class="fab fa-whatsapp" title="Solicitar Corridas via Whatsapp"></i></a>
+          <a href="https://play.google.com/store/apps/details?id=br.com.lileot.passenger.drivermachine" target="_blank" class="icone" title="Baixar App Passageiro">
+             <i class="fab fa-google-play"></i></a>
+        </footer>
+      </section>
+  
+      <!-- Seção Motorista -->
+      <section id="motorista" class="secao-inativa">
+        <img src="D:\projeto\imagens\Screenshot_20250717_171948_Google Play Store.jpg" alt="App Lileot Motorista" class="app-image" />
+        <h2>🚗 Seja um motorista Lileot!</h2>
+        <p>
+          Junte-se ao time que mais cresce em Amparo e região!<br>
+          Oferecemos suporte completo, pagamentos justos e total liberdade para você escolher seus horários.
+          Para isso, é preciso fazer o seu cadastro pelo nosso aplicativo e depois validar pelo WhatsApp.
+        </p>
+  
+        <div class="botoes-motorista">
+          <a href="https://play.google.com/store/apps/details?id=br.com.lileot.taxi.drivermachine" target="_blank" class="botao-download">
+            Baixar App do Motorista Para se Cadastrar
+          </a>
+          <a href="https://wa.me/19997376030" target="_blank" class="botao-cadastro">
+            Validar Cadastro via WhatsApp
+          </a>
+        </div>
+      </section>
+    </div>
+  
+    <!-- Script simples pra trocar seções -->
+    <script>
+      function mostrarSecao(secao) {
+        document.getElementById('passageiro').classList.remove('secao-ativa');
+        document.getElementById('motorista').classList.remove('secao-ativa');
+  
+        document.getElementById('passageiro').classList.add('secao-inativa');
+        document.getElementById('motorista').classList.add('secao-inativa');
+  
+        document.getElementById(secao).classList.remove('secao-inativa');
+        document.getElementById(secao).classList.add('secao-ativa');
+      }
+    </script>
+  </body>
+  
+</html>
