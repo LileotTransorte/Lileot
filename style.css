@@ -1,4 +1,4 @@
-/* RESET & VARIÁVEIS DE CORES MANTER A IDENTIDADE VISUAL */
+/* RESET & VARIÁVEIS DA IDENTIDADE VISUAL */
 :root {
   --primary-blue: #214f7c;      /* Azul da marca */
   --primary-blue-hover: #193e63;
@@ -30,7 +30,7 @@ body {
 .navbar {
   background-color: var(--primary-blue);
   color: var(--accent-pink);
-  padding: 15px 5%;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,7 +38,7 @@ body {
 }
 
 .logo {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 1.5px;
   display: flex;
@@ -47,7 +47,7 @@ body {
 }
 
 .logo-icon {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 
 .btn-header-wa {
@@ -57,43 +57,48 @@ body {
   border-radius: 20px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .btn-header-wa:hover {
   background-color: #ffffff;
-  transform: translateY(-2px);
 }
 
 /* CONTAINER PRINCIPAL */
 .main-container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 0 20px;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
 }
 
 /* NAVEGAÇÃO / TABS */
 .nav-tabs {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 30px;
+  gap: 10px;
+  margin-bottom: 25px;
 }
 
 .tab-btn {
+  flex: 1;
+  max-width: 200px;
+  justify-content: center;
   background-color: var(--white);
   color: var(--primary-blue);
   border: 2px solid var(--primary-blue);
-  padding: 12px 28px;
-  font-size: 1.05rem;
+  padding: 12px 15px;
+  font-size: 1rem;
   font-weight: 700;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
@@ -101,14 +106,12 @@ body {
 .tab-btn.active {
   background-color: var(--primary-blue);
   color: var(--accent-pink);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(33, 79, 124, 0.25);
 }
 
 /* ALTERNÂNCIA DE SEÇÕES */
 .secao-ativa {
   display: block;
-  animation: fadeIn 0.4s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .secao-inativa {
@@ -116,7 +119,7 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -124,50 +127,54 @@ body {
 .hero-card {
   background: linear-gradient(135deg, var(--primary-blue) 0%, #173859 100%);
   color: var(--white);
-  padding: 40px;
+  padding: 30px 20px;
   border-radius: var(--radius-lg);
   box-shadow: var(--card-shadow);
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
 .badge {
   background-color: var(--accent-pink);
   color: var(--primary-blue);
-  padding: 5px 14px;
+  padding: 4px 12px;
   border-radius: 15px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
   display: inline-block;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .hero-text h1 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-  line-height: 1.2;
+  font-size: 1.75rem;
+  margin-bottom: 12px;
+  line-height: 1.3;
 }
 
 .hero-text p {
   color: #e0e6ed;
-  font-size: 1.05rem;
-  margin-bottom: 25px;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
 }
 
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .btn-primary, .btn-whatsapp {
-  padding: 12px 24px;
+  padding: 12px 20px;
   border-radius: var(--radius-md);
   text-decoration: none;
   font-weight: 700;
-  display: inline-flex;
+  font-size: 0.95rem;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
+  width: 100%;
+  text-align: center;
   transition: all 0.3s ease;
 }
 
@@ -176,52 +183,43 @@ body {
   color: var(--primary-blue);
 }
 
-.btn-primary:hover {
-  background-color: #ffffff;
-  transform: translateY(-2px);
-}
-
 .btn-whatsapp {
   background-color: #25d366;
   color: #ffffff;
 }
 
-.btn-whatsapp:hover {
-  background-color: #1eb857;
-  transform: translateY(-2px);
-}
-
 /* SEÇÃO PROMOÇÕES */
 .section-title {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .highlight-icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--gold);
   margin-bottom: 5px;
 }
 
 .section-title h2 {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   color: var(--primary-blue);
 }
 
 .section-title p {
   color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-bottom: 25px;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .card {
   background-color: var(--white);
-  padding: 25px;
+  padding: 20px;
   border-radius: var(--radius-md);
   box-shadow: var(--card-shadow);
   border: 1px solid rgba(33, 79, 124, 0.08);
@@ -234,10 +232,10 @@ body {
   right: 15px;
   background-color: rgba(33, 79, 124, 0.1);
   color: var(--primary-blue);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 10px;
+  padding: 3px 8px;
+  border-radius: 8px;
 }
 
 .card-badge.central {
@@ -247,13 +245,14 @@ body {
 
 .card h3 {
   color: var(--primary-blue);
-  margin-bottom: 15px;
-  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  padding-right: 70px;
 }
 
 .subtitle {
-  font-size: 0.9rem;
-  margin-bottom: 15px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
   color: var(--text-muted);
 }
 
@@ -262,9 +261,11 @@ body {
 }
 
 .prizes-list li {
-  padding: 8px 0;
+  padding: 6px 0;
   border-bottom: 1px dashed #edf2f7;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .prizes-list li:last-child {
@@ -273,57 +274,63 @@ body {
 
 .price {
   color: var(--primary-blue);
-  font-size: 1.05rem;
 }
 
 /* CAIXA DE INDICAÇÃO */
 .referral-box {
   background-color: var(--accent-pink);
   color: var(--primary-blue);
-  padding: 20px 25px;
+  padding: 18px;
   border-radius: var(--radius-md);
   display: flex;
+  flex-direction: column;
+  text-align: center;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   box-shadow: var(--card-shadow);
 }
 
 .referral-icon {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 
 .referral-box h4 {
-  font-size: 1.2rem;
-  margin-bottom: 3px;
+  font-size: 1.1rem;
+}
+
+.referral-box p {
+  font-size: 0.9rem;
 }
 
 /* PASSOS MOTORISTA */
 .steps-box {
-  margin: 20px 0 25px;
+  margin: 15px 0 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .step {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   background: rgba(255, 255, 255, 0.1);
-  padding: 10px 15px;
-  border-radius: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
 }
 
 .step-num {
   background-color: var(--accent-pink);
   color: var(--primary-blue);
   font-weight: 800;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .benefit-card {
@@ -332,14 +339,14 @@ body {
 
 .icon-wrapper {
   background-color: rgba(33, 79, 124, 0.08);
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 15px;
-  font-size: 1.5rem;
+  margin: 0 auto 10px;
+  font-size: 1.3rem;
   color: var(--primary-blue);
 }
 
@@ -351,58 +358,72 @@ body {
 .footer {
   background-color: var(--primary-blue);
   color: var(--accent-pink);
-  padding: 40px 20px 20px;
+  padding: 30px 15px 20px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .brand-footer {
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 25px;
+  gap: 18px;
+  margin-bottom: 20px;
 }
 
 .social-links a {
   color: var(--accent-pink);
-  font-size: 1.8rem;
-  transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #ffffff;
-  transform: translateY(-4px);
+  font-size: 1.6rem;
 }
 
 .copyright {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: rgba(242, 167, 193, 0.7);
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 600px) {
+/* MEDIAS QUERIES PARA COMPUTADORES/TABLETS */
+@media (min-width: 650px) {
   .navbar {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
+    padding: 15px 5%;
   }
-  
+
+  .btn-header-wa {
+    font-size: 0.9rem;
+  }
+
   .hero-card {
-    padding: 25px;
+    padding: 40px;
   }
-  
+
   .hero-text h1 {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
   }
-  
+
+  .hero-actions {
+    flex-direction: row;
+  }
+
+  .btn-primary, .btn-whatsapp {
+    width: auto;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
   .referral-box {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    text-align: left;
+    padding: 20px 25px;
+  }
+
+  .section-title h2 {
+    font-size: 1.7rem;
   }
 }
