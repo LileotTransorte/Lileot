@@ -3,91 +3,218 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lileot - Inovação e Tecnologia</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Lileot - Transporte por Aplicativo em Amparo e Região</title>
+  
+  <!-- Fontes Google & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-  
-      <!-- Menu de seleção -->
-      <nav class="menu">
-        <button onclick="mostrarSecao('passageiro')">👤 Passageiro</button>
-        <button onclick="mostrarSecao('motorista')">🚗 Motorista</button>
-      </nav>
-  
-      <!-- Seção Passageiro -->
-      <section id="passageiro" class="secao-ativa">
-        <header>
-          <img src="imagens/passageiro.jpg" alt="App Passageiro Lileot" class="app-image" />
-        </header>
-  
-        <section class="descricao">
-          <h1>Lileot</h1>
-          <p>
-            Na Lileot, transportar você com segurança, conforto e pontualidade é a nossa prioridade.<br><br>
-  
-            Atuamos na cidade de Amparo e região, oferecendo um serviço de transporte por aplicativo que se destaca pela qualidade no atendimento, motoristas capacitados e um profundo compromisso com a satisfação do cliente.<br><br>
-  
-            Cada viagem é pensada para proporcionar uma experiência tranquila, confiável e acolhedora, seja para o dia a dia ou momentos especiais. Prezamos pela pontualidade, porque sabemos que seu tempo é valioso, e pelo conforto, porque entendemos que sua jornada começa no momento em que entra no carro.<br><br>
-  
-            Com a Lileot, você conta com transparência, segurança e respeito, reforçando o que acreditamos: o transporte ideal é aquele que te leva bem — e vai além do destino.
 
-             Você pode solicitar corridas com a gente de forma rápida e prática, seja pelo nosso aplicativo ou diretamente pelo WhatsApp!
-
-          </p>
-  
-          <p style="margin-top: 20px; font-weight: bold;">
-            🎉 Promoção Especial: Viaje e Concorra a R$ 1.000,00!<br>
-            Faça mais de 5 corridas e concorra a um prêmio em dinheiro. Quanto mais você anda, mais chances tem de ganhar!
-          </p>
-        </section>
-  
-        <footer class="redes-sociais">
-          <a href="https://instagram.com/lileotlileot" target="_blank" class="icone"><i class="fab fa-instagram" title="Perfil no Instagram"></i></a>
-          <a href="https://facebook.com/lileotapp" target="_blank" class="icone"><i class="fab fa-facebook" title="Perfil no Facebook"></i></a>
-          <a href="https://wa.me/19989548149" target="_blank" class="icone"><i class="fab fa-whatsapp" title="Solicitar Corridas via Whatsapp"></i></a>
-          <a href="https://play.google.com/store/apps/details?id=br.com.lileot.passenger.drivermachine" target="_blank" class="icone" title="Baixar App Passageiro">
-             <i class="fab fa-google-play"></i></a>
-          <a href="https://www.youtube.com/@LileotTransporte" target="_blank" class="icone"><i class="fab fa-youtube" title="Canal do youtube"></i></a>
-
-        </footer>
-      </section>
-  
-      <!-- Seção Motorista -->
-      <section id="motorista" class="secao-inativa">
-        <img src="imagens/motorista.jpg" alt="App Motorista Lileot" class="app-image" />
-        <h2>🚗 Seja um motorista Lileot!</h2>
-        <p>
-          Junte-se ao time que mais cresce em Amparo e região!<br>
-          Oferecemos suporte completo, pagamentos justos e total liberdade para você escolher seus horários.
-          Para isso, é preciso fazer o seu cadastro pelo nosso aplicativo e depois validar pelo WhatsApp.
-        </p>
-  
-        <div class="botoes-motorista">
-          <a href="https://play.google.com/store/apps/details?id=br.com.lileot.taxi.drivermachine" target="_blank" class="botao-download">
-            Baixar App do Motorista Para se Cadastrar
-          </a>
-          <a href="https://wa.me/19997376030" target="_blank" class="botao-cadastro">
-            Validar Cadastro via WhatsApp
-          </a>
-        </div>
-      </section>
+  <!-- Top Banner / Header -->
+  <header class="navbar">
+    <div class="logo">
+      <i class="fa-solid fa-car-side logo-icon"></i>
+      <span>LILEOT</span>
     </div>
-  
-    <!-- Script simples pra trocar seções -->
-    <script>
-      function mostrarSecao(secao) {
-        document.getElementById('passageiro').classList.remove('secao-ativa');
-        document.getElementById('motorista').classList.remove('secao-ativa');
-  
-        document.getElementById('passageiro').classList.add('secao-inativa');
-        document.getElementById('motorista').classList.add('secao-inativa');
-  
-        document.getElementById(secao).classList.remove('secao-inativa');
-        document.getElementById(secao).classList.add('secao-ativa');
+    <div class="header-contact">
+      <a href="https://wa.me/19989548149" target="_blank" class="btn-header-wa">
+        <i class="fab fa-whatsapp"></i> Central: (19) 98954-8149
+      </a>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- Navegação de Abas -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" onclick="mostrarSecao('passageiro')">
+        <i class="fa-solid fa-user-group"></i> Passageiro
+      </button>
+      <button class="tab-btn" onclick="mostrarSecao('motorista')">
+        <i class="fa-solid fa-steering-wheel"></i> Motorista
+      </button>
+    </nav>
+
+    <!-- SEÇÃO PASSAGEIRO -->
+    <section id="passageiro" class="secao-conteudo secao-ativa">
+      
+      <!-- Hero/Banner do App Passageiro -->
+      <div class="hero-card">
+        <div class="hero-text">
+          <span class="badge">O App Número Um de Amparo</span>
+          <h1>Sua viagem com conforto, segurança e prêmios!</h1>
+          <p>
+            Na <strong>Lileot</strong>, transportar você com pontualidade e respeito é nossa prioridade. Atuamos em Amparo e região oferecendo um atendimento humanizado e motoristas capacitados.
+          </p>
+          <div class="hero-actions">
+            <a href="https://play.google.com/store/apps/details?id=br.com.lileot.passenger.drivermachine" target="_blank" class="btn-primary">
+              <i class="fab fa-google-play"></i> Baixar App Passageiro
+            </a>
+            <a href="https://wa.me/19989548149" target="_blank" class="btn-whatsapp">
+              <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promoções & Festival de Prêmios -->
+      <div class="promo-section">
+        <div class="section-title">
+          <i class="fa-solid fa-trophy highlight-icon"></i>
+          <h2>Festival de Prêmios — 3 Anos Lileot em Amparo</h2>
+          <p>Em janeiro a Lileot faz 3 anos e o presente é todo seu! Já foram mais de R$ 12 mil em prêmios.</p>
+        </div>
+
+        <div class="cards-grid">
+          
+          <!-- Card App -->
+          <div class="card promo-card">
+            <div class="card-badge">Corridas via App</div>
+            <h3><i class="fa-solid fa-mobile-screen"></i> Maior Número de Corridas</h3>
+            <ul class="prizes-list">
+              <li><span class="pos">1º Lugar:</span> <strong class="price">R$ 600,00</strong> em dinheiro</li>
+              <li><span class="pos">2º Lugar:</span> <strong class="price">R$ 500,00</strong> em dinheiro</li>
+              <li><span class="pos">3º Lugar:</span> <strong class="price">R$ 400,00</strong> em dinheiro</li>
+              <li><span class="pos">4º Lugar:</span> <strong class="price">R$ 300,00</strong> em dinheiro</li>
+            </ul>
+          </div>
+
+          <!-- Card WhatsApp -->
+          <div class="card promo-card">
+            <div class="card-badge central">Corridas via Central</div>
+            <h3><i class="fab fa-whatsapp"></i> Sorteio pelo WhatsApp</h3>
+            <p class="subtitle">Chame pelo número: <strong>(19) 98954-8149</strong></p>
+            <ul class="prizes-list compact">
+              <li><span>1º:</span> <strong>R$ 300,00</strong></li>
+              <li><span>2º:</span> <strong>R$ 250,00</strong></li>
+              <li><span>3º:</span> <strong>R$ 200,00</strong></li>
+              <li><span>4º:</span> <strong>R$ 150,00</strong></li>
+              <li><span>5º:</span> <strong>R$ 120,00</strong></li>
+              <li><span>6º & 7º:</span> <strong>R$ 100,00</strong> cada</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Indique e Ganhe Passageiros -->
+        <div class="referral-box">
+          <i class="fa-solid fa-gift referral-icon"></i>
+          <div>
+            <h4>Indique Amigos e Ganhe R$ 20,00!</h4>
+            <p>Valendo para passageiros e motoristas: ganhe <strong>R$ 20,00</strong> por cada novo cliente indicado assim que ele realizar 20 corridas!</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- SEÇÃO MOTORISTA -->
+    <section id="motorista" class="secao-conteudo secao-inativa">
+      
+      <div class="hero-card driver-hero">
+        <div class="hero-text">
+          <span class="badge driver-badge">Seja nosso parceiro</span>
+          <h1>Dirija com a Lileot e fature mais!</h1>
+          <p>
+            Junte-se ao time que mais cresce em Amparo e região! Oferecemos suporte humanizado, taxas e pagamentos justos e total liberdade para você definir seu horário.
+          </p>
+          
+          <div class="steps-box">
+            <div class="step">
+              <span class="step-num">1</span>
+              <p>Baixe o App do Motorista e faça seu cadastro inicial.</p>
+            </div>
+            <div class="step">
+              <span class="step-num">2</span>
+              <p>Valide e ative seu cadastro via WhatsApp com nossa equipe.</p>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="https://play.google.com/store/apps/details?id=br.com.lileot.taxi.drivermachine" target="_blank" class="btn-primary">
+              <i class="fab fa-google-play"></i> Baixar App Motorista
+            </a>
+            <a href="https://wa.me/19997376030" target="_blank" class="btn-whatsapp">
+              <i class="fab fa-whatsapp"></i> Validar Cadastro (Suporte)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vantagens e Promoção para Motorista -->
+      <div class="driver-benefits">
+        <div class="section-title">
+          <i class="fa-solid fa-handshake-simple highlight-icon"></i>
+          <h2>Programa Indique e Ganhe — Motoristas</h2>
+        </div>
+
+        <div class="cards-grid">
+          
+          <div class="card benefit-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-user-plus"></i></div>
+            <h3>Indique outro Motorista</h3>
+            <p>Ganhe <strong class="highlight-text">R$ 100,00 em créditos</strong> no app assim que o motorista indicado completar suas primeiras 100 corridas na Lileot!</p>
+          </div>
+
+          <div class="card benefit-card">
+            <div class="icon-wrapper"><i class="fa-solid fa-users"></i></div>
+            <h3>Indique Clientes e Passageiros</h3>
+            <p>Ganhe <strong class="highlight-text">R$ 20,00 em dinheiro</strong> por cada novo cliente indicado que cadastrar e fizer 20 corridas.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="brand-footer">Lileot — O App Número Um de Amparo e Região</p>
+      <div class="social-links">
+        <a href="https://instagram.com/lileotlileot" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/lileotapp" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/19989548149" target="_blank" title="WhatsApp Central"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://play.google.com/store/apps/details?id=br.com.lileot.passenger.drivermachine" target="_blank" title="Play Store"><i class="fab fa-google-play"></i></a>
+        <a href="https://www.youtube.com/@LileotTransporte" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p class="copyright">&copy; 2026 Lileot. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script das Abas -->
+  <script>
+    function mostrarSecao(secao) {
+      // Esconder todas as seções
+      document.getElementById('passageiro').classList.remove('secao-ativa');
+      document.getElementById('motorista').classList.remove('secao-ativa');
+      document.getElementById('passageiro').classList.add('secao-inativa');
+      document.getElementById('motorista').classList.add('secao-inativa');
+
+      // Remover classe active dos botões
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      // Mostrar seção selecionada e ativar botão
+      if(secao === 'passageiro') {
+        document.getElementById('passageiro').classList.remove('secao-inativa');
+        document.getElementById('passageiro').classList.add('secao-ativa');
+        buttons[0].classList.add('active');
+      } else {
+        document.getElementById('motorista').classList.remove('secao-inativa');
+        document.getElementById('motorista').classList.add('secao-ativa');
+        buttons[1].classList.add('active');
       }
-    </script>
-  </body>
-  
+    }
+  </script>
+
+</body>
 </html>
