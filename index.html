@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lileot - Transporte por Aplicativo em Amparo e Região</title>
-  
+
   <!-- Fontes Google & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  
+
+  <!-- Leaflet CSS (Mapa Interativo) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <!-- Header / Navbar -->
   <header class="navbar">
     <div class="logo">
-      <i class="fa-solid fa-car-side logo-icon"></i>
+      <div class="logo-icon-bg"><i class="fa-solid fa-car-side logo-icon"></i></div>
       <span>LILEOT</span>
     </div>
+
+    <!-- Widget de Clima por GPS Dinâmico -->
+    <div class="weather-widget" id="weatherWidget">
+      <i class="fa-solid fa-location-dot location-icon"></i>
+      <span id="weatherText">Obtendo localização...</span>
+    </div>
+
     <div class="header-contact">
       <a href="https://wa.me/19989548149" target="_blank" class="btn-header-wa">
-        <i class="fab fa-whatsapp"></i> (19) 98954-8149
+        <i class="fab fa-whatsapp"></i> <span>(19) 98954-8149</span>
       </a>
     </div>
   </header>
@@ -42,22 +55,36 @@
 
     <!-- SEÇÃO PASSAGEIRO -->
     <section id="passageiro" class="secao-conteudo secao-ativa">
-      
+
       <div class="hero-card">
         <div class="hero-text">
-          <span class="badge">O App Nº 1 de Amparo</span>
+          <span class="badge"><i class="fa-solid fa-star"></i> O App Nº 1 de Amparo</span>
           <h1>Sua viagem com conforto, segurança e prêmios!</h1>
           <p>
-            Na <strong>Lileot</strong>, transportar você com pontualidade e respeito é nossa prioridade. Atuamos em Amparo e região oferecendo um atendimento humanizado e motoristas capacitados.
+            Na <strong>Lileot</strong>, transportar você com pontualidade e respeito é nossa prioridade. Atuamos em
+            Amparo e região oferecendo um atendimento humanizado e motoristas capacitados.
           </p>
           <div class="hero-actions">
-            <a href="https://play.google.com/store/apps/details?id=br.com.lileot.passenger.drivermachine" target="_blank" class="btn-primary">
+            <a href="https://play.google.com/store/apps/details?id=br.com.lileot.passenger.drivermachine"
+              target="_blank" class="btn-primary">
               <i class="fab fa-google-play"></i> Baixar App Passageiro
             </a>
             <a href="https://wa.me/19989548149" target="_blank" class="btn-whatsapp">
               <i class="fab fa-whatsapp"></i> Pedir pelo WhatsApp
             </a>
           </div>
+        </div>
+      </div>
+
+      <!-- Mapa Interativo de Atuação -->
+      <div class="map-section">
+        <div class="section-title">
+          <i class="fa-solid fa-map-location-dot highlight-icon"></i>
+          <h2>Área de Cobertura</h2>
+          <p>Atendemos em Amparo e em toda a região do Circuito das Águas.</p>
+        </div>
+        <div class="map-card">
+          <div id="map"></div>
         </div>
       </div>
 
@@ -70,16 +97,20 @@
         </div>
 
         <div class="cards-grid">
-          
+
           <!-- Card App -->
           <div class="card promo-card">
             <div class="card-badge">Corridas via App</div>
             <h3><i class="fa-solid fa-mobile-screen"></i> Maior Número de Corridas</h3>
             <ul class="prizes-list">
-              <li><span class="pos">1º Lugar:</span> <strong class="price">R$ 600,00</strong></li>
-              <li><span class="pos">2º Lugar:</span> <strong class="price">R$ 500,00</strong></li>
-              <li><span class="pos">3º Lugar:</span> <strong class="price">R$ 400,00</strong></li>
-              <li><span class="pos">4º Lugar:</span> <strong class="price">R$ 300,00</strong></li>
+              <li><span class="pos"><i class="fa-solid fa-trophy gold"></i> 1º Lugar:</span> <strong class="price">R$
+                  600,00</strong></li>
+              <li><span class="pos"><i class="fa-solid fa-medal silver"></i> 2º Lugar:</span> <strong class="price">R$
+                  500,00</strong></li>
+              <li><span class="pos"><i class="fa-solid fa-medal bronze"></i> 3º Lugar:</span> <strong class="price">R$
+                  400,00</strong></li>
+              <li><span class="pos"><i class="fa-solid fa-award"></i> 4º Lugar:</span> <strong class="price">R$
+                  300,00</strong></li>
             </ul>
           </div>
 
@@ -89,11 +120,12 @@
             <h3><i class="fab fa-whatsapp"></i> Sorteio WhatsApp</h3>
             <p class="subtitle">Chame pelo: <strong>(19) 98954-8149</strong></p>
             <ul class="prizes-list">
-              <li><span>1º Lugar:</span> <strong>R$ 300,00</strong></li>
-              <li><span>2º Lugar:</span> <strong>R$ 250,00</strong></li>
-              <li><span>3º Lugar:</span> <strong>R$ 200,00</strong></li>
-              <li><span>4º Lugar:</span> <strong>R$ 150,00</strong></li>
-              <li><span>5º, 6º e 7º Lugar:</span> <strong>R$ 100,00 cada</strong></li>
+              <li><span><i class="fa-solid fa-ticket"></i> 1º Lugar:</span> <strong>R$ 300,00</strong></li>
+              <li><span><i class="fa-solid fa-ticket"></i> 2º Lugar:</span> <strong>R$ 250,00</strong></li>
+              <li><span><i class="fa-solid fa-ticket"></i> 3º Lugar:</span> <strong>R$ 200,00</strong></li>
+              <li><span><i class="fa-solid fa-ticket"></i> 4º Lugar:</span> <strong>R$ 150,00</strong></li>
+              <li><span><i class="fa-solid fa-ticket"></i> 5º, 6º e 7º Lugar:</span> <strong>R$ 100,00 cada</strong>
+              </li>
             </ul>
           </div>
 
@@ -104,7 +136,8 @@
           <i class="fa-solid fa-gift referral-icon"></i>
           <div>
             <h4>Indique Amigos e Ganhe R$ 20,00!</h4>
-            <p>Valendo para passageiros e motoristas: ganhe <strong>R$ 20,00</strong> por cada novo cliente indicado que realizar 20 corridas!</p>
+            <p>Valendo para passageiros e motoristas: ganhe <strong>R$ 20,00</strong> por cada novo cliente indicado que
+              realizar 20 corridas!</p>
           </div>
         </div>
       </div>
@@ -113,15 +146,16 @@
 
     <!-- SEÇÃO MOTORISTA -->
     <section id="motorista" class="secao-conteudo secao-inativa">
-      
+
       <div class="hero-card driver-hero">
         <div class="hero-text">
-          <span class="badge driver-badge">Seja nosso parceiro</span>
+          <span class="badge driver-badge"><i class="fa-solid fa-handshake"></i> Seja nosso parceiro</span>
           <h1>Dirija com a Lileot e fature mais!</h1>
           <p>
-            Junte-se ao time que mais cresce em Amparo e região! Oferecemos suporte humanizado, taxas justas e total liberdade de horário.
+            Junte-se ao time que mais cresce em Amparo e região! Oferecemos suporte humanizado, taxas justas e total
+            liberdade de horário.
           </p>
-          
+
           <div class="steps-box">
             <div class="step">
               <span class="step-num">1</span>
@@ -134,7 +168,8 @@
           </div>
 
           <div class="hero-actions">
-            <a href="https://play.google.com/store/apps/details?id=br.com.lileot.taxi.drivermachine" target="_blank" class="btn-primary">
+            <a href="https://play.google.com/store/apps/details?id=br.com.lileot.taxi.drivermachine" target="_blank"
+              class="btn-primary">
               <i class="fab fa-google-play"></i> Baixar App Motorista
             </a>
             <a href="https://wa.me/19997376030" target="_blank" class="btn-whatsapp">
@@ -152,17 +187,19 @@
         </div>
 
         <div class="cards-grid">
-          
+
           <div class="card benefit-card">
             <div class="icon-wrapper"><i class="fa-solid fa-user-plus"></i></div>
             <h3>Indique outro Motorista</h3>
-            <p>Ganhe <strong class="highlight-text">R$ 100,00 em créditos</strong> no app assim que o motorista indicado completar 100 corridas!</p>
+            <p>Ganhe <strong class="highlight-text">R$ 100,00 em créditos</strong> no app assim que o motorista indicado
+              completar 100 corridas!</p>
           </div>
 
           <div class="card benefit-card">
             <div class="icon-wrapper"><i class="fa-solid fa-users"></i></div>
             <h3>Indique Clientes</h3>
-            <p>Ganhe <strong class="highlight-text">R$ 20,00 em créditos</strong> por cada novo cliente indicado que fizer 20 corridas.</p>
+            <p>Ganhe <strong class="highlight-text">R$ 20,00 em créditos</strong> por cada novo cliente indicado que
+              fizer 20 corridas.</p>
           </div>
 
         </div>
@@ -172,20 +209,31 @@
 
   </main>
 
+  <!-- Botão Flutuante do WhatsApp -->
+  <a href="https://wa.me/19989548149" target="_blank" class="whatsapp-float" title="Pedir Corrida pelo WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
   <!-- Rodapé -->
   <footer class="footer">
     <div class="footer-content">
       <p class="brand-footer">Lileot — O App Número Um de Amparo</p>
       <div class="social-links">
-        <a href="https://instagram.com/lileotlileot" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://instagram.com/lileotlileot" target="_blank" title="Instagram"><i
+            class="fab fa-instagram"></i></a>
         <a href="https://facebook.com/lileotapp" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
         <a href="https://wa.me/19989548149" target="_blank" title="WhatsApp Central"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://play.google.com/store/apps/details?id=br.com.lileot.passenger.drivermachine" target="_blank" title="Play Store"><i class="fab fa-google-play"></i></a>
-        <a href="https://www.youtube.com/@LileotTransporte" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://play.google.com/store/apps/details?id=br.com.lileot.passenger.drivermachine" target="_blank"
+          title="Play Store"><i class="fab fa-google-play"></i></a>
+        <a href="https://www.youtube.com/@LileotTransporte" target="_blank" title="YouTube"><i
+            class="fab fa-youtube"></i></a>
       </div>
       <p class="copyright">&copy; 2026 Lileot. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <!-- Leaflet JS (Mapa Interativo) -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
     function mostrarSecao(secao) {
@@ -197,7 +245,7 @@
       const buttons = document.querySelectorAll('.tab-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
 
-      if(secao === 'passageiro') {
+      if (secao === 'passageiro') {
         document.getElementById('passageiro').classList.remove('secao-inativa');
         document.getElementById('passageiro').classList.add('secao-ativa');
         buttons[0].classList.add('active');
@@ -207,7 +255,74 @@
         buttons[1].classList.add('active');
       }
     }
+
+    async function obterClimaPorGPS() {
+      const widgetText = document.getElementById('weatherText');
+
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            try {
+              const resWeather = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+              const dataWeather = await resWeather.json();
+              const temp = Math.round(dataWeather.current_weather.temperature);
+
+              const resGeo = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`);
+              const dataGeo = await resGeo.json();
+              const cidade = dataGeo.address.city || dataGeo.address.town || dataGeo.address.village || "Sua região";
+
+              widgetText.innerHTML = `<strong>${cidade}:</strong> ${temp}°C`;
+              atualizarMapa(lat, lon, cidade);
+            } catch (e) {
+              carregarClimaPadrao();
+            }
+          },
+          () => { carregarClimaPadrao(); }
+        );
+      } else {
+        carregarClimaPadrao();
+      }
+    }
+
+    async function carregarClimaPadrao() {
+      const lat = -22.7011, lon = -46.7642;
+      try {
+        const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+        const data = await res.json();
+        document.getElementById('weatherText').innerHTML = `<strong>Amparo:</strong> ${Math.round(data.current_weather.temperature)}°C`;
+      } catch (err) {
+        document.getElementById('weatherWidget').style.display = 'none';
+      }
+      atualizarMapa(lat, lon, "Amparo (Central)");
+    }
+
+    let map, userMarker;
+    function inicializarMapa() {
+      map = L.map('map').setView([-22.7011, -46.7642], 12);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap'
+      }).addTo(map);
+    }
+
+    function atualizarMapa(lat, lon, localNome) {
+      if (!map) inicializarMapa();
+      map.setView([lat, lon], 13);
+
+      if (userMarker) map.removeLayer(userMarker);
+
+      userMarker = L.marker([lat, lon]).addTo(map)
+        .bindPopup(`<b>Sua Localização:</b> ${localNome}<br>A Lileot atende aqui!`)
+        .openPopup();
+    }
+
+    window.onload = () => {
+      inicializarMapa();
+      obterClimaPorGPS();
+    };
   </script>
 
 </body>
+
 </html>
